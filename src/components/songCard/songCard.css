@@ -1,0 +1,34 @@
+/* .songCard-body{
+    display: flex;
+    width:90%;
+    height: 60%;
+    background-color: #27354D;
+    border-radius: 30px;
+    border: #27354D;
+    border-bottom-right-radius: 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+/* .songCard-body {
+    width: 80%;
+    height: 62%;
+    background-color: #27354d;
+    border-radius: 30px;
+    border-bottom-right-radius: 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+  } */
+  .songCard-body {
+    width: 90%;
+    height: 62%;
+    background-color: #27354d;
+    border-radius: 30px;
+    border-bottom-right-radius: 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 41px;
+  }
