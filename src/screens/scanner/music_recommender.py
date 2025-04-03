@@ -59,3 +59,83 @@ if __name__ == "__main__":
 # 3️⃣ Start the React Frontend
 # Navigate to your React project.
 # Run npm start to launch the frontend.
+
+
+
+
+
+
+# 1.MODIFY SCRIPT:
+import cv2
+import numpy as np
+import os
+
+def detect_mood(image_path):
+    """Analyzes an image to determine a mood category."""
+    print(f"Attempting to read image from: {image_path}")  # Debug print
+
+    if not os.path.exists(image_path):
+        print("Error: Image file not found!")
+        return None
+
+    image = cv2.imread(image_path)
+
+    if image is None:
+        print("Error: Could not read image. It may be corrupted or an invalid format.")
+        return None
+    
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    avg_brightness = np.mean(gray)
+    print(f"Average Brightness: {avg_brightness}")  # Debugging print
+
+    if avg_brightness > 180:
+        return "happy"
+    elif avg_brightness > 100:
+        return "calm"
+    elif avg_brightness > 50:
+        return "sad"
+    else:
+        return "energetic"
+
+if __name__ == "__main__":
+    image_path = "uploads/input.jpg"
+    print("Starting mood detection...")  # Debugging print
+
+    mood = detect_mood(image_path)
+    
+    if mood:
+        print(f"Detected Mood: {mood}")
+    else:
+        print("Mood detection failed.")
+
+# 2.RUN MANUALLY
+python music_recommender.py
+
+# 3. Check If uploads/input.jpg Exists
+ls -lh uploads/
+
+# If input.jpg does not exist, the frontend or Node.js might not be saving the image correctly.
+cp some_image.jpg uploads/input.jpg
+# RE-RUN
+
+# Check If Node.js Executes the Script
+const { exec } = require("child_process");
+
+exec("python music_recommender.py", (error, stdout, stderr) => {
+    console.log("Executing Python script...");  // Debug print
+
+    if (error) {
+        console.error(`Exec Error: ${error}`);
+        return;
+    }
+    if (stderr) {
+        console.error(`Python Error: ${stderr}`);
+        return;
+    }
+    console.log(`Python Output: ${stdout}`);
+});
+
+# Then restart your server
+node server.js
+
+
